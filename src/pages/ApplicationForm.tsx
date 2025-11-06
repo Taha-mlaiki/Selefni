@@ -5,16 +5,9 @@ import * as z from "zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { api } from "@/api/client";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from "@/components/ui/form";
+
+import { Form } from "@/components/ui/form";
+import { toast } from "sonner";
 
 const schema = z.object({
   nom: z.string().min(2),
@@ -28,7 +21,6 @@ const schema = z.object({
 export default function ApplicationForm() {
   const { simulationId } = useParams();
   const navigate = useNavigate();
-  const { toast } = useToast();
 
   const { data: simulation } = useQuery({
     queryKey: ["simulation", simulationId],
@@ -46,7 +38,7 @@ export default function ApplicationForm() {
       }),
     onSuccess: () => {
       api.post("/notifications", { applicationId: "temp", lu: false });
-      toast({ title: "Demande envoyée !" });
+      toast.success("Demande envoyée !", { duration: 3000 });
       navigate("/");
     },
   });

@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/components/ui/use-toast";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 const schema = z.object({
   type: z.string().min(1),
@@ -44,7 +45,6 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 export default function Simulation() {
-  const { toast } = useToast();
   const [result, setResult] = useState<any>(null);
 
   const form = useForm<FormValues>({
@@ -63,7 +63,7 @@ export default function Simulation() {
   const mutation = useMutation({
     mutationFn: (data: any) => api.post("/simulations", data),
     onSuccess: (res) => {
-      toast({ title: "Simulation sauvegardée !" });
+      toast.success("Simulation sauvegardée !", { duration: 3000 });
       setResult({ ...res.data, id: res.data.id });
     },
   });
