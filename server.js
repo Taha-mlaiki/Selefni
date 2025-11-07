@@ -1,20 +1,25 @@
 const jsonServer = require("json-server");
 const server = jsonServer.create();
-const router = jsonServer.router("db.json");
+const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
-server.use(jsonServer.bodyParser);
 
-// Auto timestamp
+// Add timestamps middleware
 server.use((req, res, next) => {
-  if (req.method === "POST" || req.method === "PATCH") {
+  if (req.method === 'POST') {
     req.body.createdAt = new Date().toISOString();
+    req.body.updatedAt = new Date().toISOString();
+  }
+  if (req.method === 'PATCH' || req.method === 'PUT') {
+    req.body.updatedAt = new Date().toISOString();
   }
   next();
 });
 
 server.use(router);
-server.listen(3001, () => {
-  console.log("JSON Server running on http://localhost:3001");
+
+const PORT = 3001;
+server.listen(PORT, () => {
+  console.log(`JSON Server is running on port ${PORT}`);
 });

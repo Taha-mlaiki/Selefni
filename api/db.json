@@ -1,0 +1,56 @@
+{
+  "posts": [],
+  "requests": [
+    {
+      "simulationId": "1762537874975",
+      "simulation": {
+        "id": "1762537874975",
+        "type": "personal",
+        "amount": 10000,
+        "duration": 36,
+        "rate": 5,
+        "fees": 200,
+        "insurance": 15,
+        "monthlyPayment": 314.71,
+        "totalCost": 11529.56,
+        "taeg": 5.1,
+        "createdAt": "2025-11-07T17:51:14.975Z"
+      },
+      "firstName": "taha ",
+      "lastName": "mlaiki",
+      "email": "mlaikitaha29@gmail.com",
+      "phone": "0719475033",
+      "income": 12310,
+      "jobSituation": "employed",
+      "comment": "sdfjsldjfksjdlkfjlksjfd",
+      "status": "rejected",
+      "isPriority": false,
+      "notes": [
+        "2025-11-07T18:49:44.651Z: yes it it because you are unployed"
+      ],
+      "statusHistory": [
+        {
+          "status": "pending",
+          "timestamp": "2025-11-07T18:49:00.357Z"
+        },
+        {
+          "status": "rejected",
+          "timestamp": "2025-11-07T18:49:29.997Z"
+        }
+      ],
+      "id": 1762541340401,
+      "createdAt": "2025-11-07T18:49:00.400Z",
+      "updatedAt": "2025-11-07T18:49:44.660Z"
+    }
+  ],
+  "notifications": [
+    {
+      "requestId": "1762541340357",
+      "message": "New credit request from taha  mlaiki",
+      "read": false,
+      "createdAt": "2025-11-07T18:49:00.416Z",
+      "updatedAt": "2025-11-07T18:49:00.416Z",
+      "id": 1762541340417
+    }
+  ]
+}
